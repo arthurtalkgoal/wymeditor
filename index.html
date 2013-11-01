@@ -1,45 +1,10 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Wymeditor by wymeditor</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+---
+layout: home
+title: WYMeditor
+base_url: "./"
+---
 
-  </head>
-  <body>
-
-      <header>
-        <h1>Wymeditor</h1>
-        <p>Javascript WYSIWYM editor focused on clean, semantic markup</p>
-      </header>
-
-      <div id="banner">
-        <span id="logo"></span>
-
-        <a href="https://github.com/wymeditor/wymeditor" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/wymeditor/wymeditor/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/wymeditor/wymeditor/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h1>
+<h1>
 <a name="wymeditor" class="anchor" href="#wymeditor"><span class="octicon octicon-link"></span></a>WYMeditor</h1>
 
 <p>WYMeditor is an open source web-based WYSIWYM editor with semantics and
@@ -72,7 +37,7 @@ choice.</p>
 <h2>
 <a name="try-it" class="anchor" href="#try-it"><span class="octicon octicon-link"></span></a>Try It</h2>
 
-<p>Want to see what WYMeditor can do? Try the <a href="http://wymeditor.no.de/wymeditor/examples/">WYMeditor examples</a> right now.</p>
+<p>Want to see what WYMeditor can do? Try the <a href="dist/examples/">WYMeditor examples</a> right now.</p>
 
 <p>These examples run the bleeding edge code and give you a good idea of what
 WYMeditor can do.</p>
@@ -89,7 +54,7 @@ Migrate after jQuery is included.</p>
 
 <ol>
 <li><p>Download the
-<a href="https://github.com/downloads/wymeditor/wymeditor/wymeditor-1.0.0b4.tar.gz">Version 1.0.0b4</a>
+<a href="{{ site.download_dist }}">Version {{ site.current_version }}</a>
 archive and extract the contents to a folder in your project.</p></li>
 <li>
 <p>Include the <code>wymeditor/jquery.wymeditor.min.js</code> file on your page. This file
@@ -129,116 +94,16 @@ your <code>examples</code> directory.</p>
 <li>Opera: Latest version</li>
 <li>Safari: Latest version</li>
 <li>Google Chrome: Latest two major versions</li>
-</ul><h2>
-<a name="contributing-to-wymeditor" class="anchor" href="#contributing-to-wymeditor"><span class="octicon octicon-link"></span></a>Contributing to WYMeditor</h2>
+</ul>
 
-<h3>
-<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h3>
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Full Documentation</h2>
 
-<p>Our documentation uses the <a href="http://sphinx-doc.org/">Sphinx</a> documentation tool.
-The source lives in the <code>docs/</code> folder and every pull requests that isn't
-just fixing a bug <em>must</em> come with documentation.</p>
-
-<p>You can see the current documentation at
+<p>Check out or detailed documentation at:
 <a href="http://wymeditor.readthedocs.org">wymeditor.readthedocs.org</a>.</p>
 
-<h3>
-<a name="testing-wymeditor" class="anchor" href="#testing-wymeditor"><span class="octicon octicon-link"></span></a>Testing WYMeditor</h3>
-
-<p>WYMeditor includes a full unit test suite to help us ensure that the editor
-works great across a variety of browsers. The test suite should pass in any of
-our supported browsers and if it doesn't, please
-<a href="https://github.com/wymeditor/wymeditor/issues/new">file a bug</a> so we can fix it!</p>
-
-<p>To run the test suite.</p>
-
-<ol>
-<li>
-<p>Get a copy of the source using git:</p>
-
-<p>git clone git://github.com/wymeditor/wymeditor.git</p>
-</li>
-<li>
-<p>Put your source behind some kind of web server (apache, nginx, etc). If you
-don't have one installed or don't want to fuss with configuration, you can use
-python's HTTP server:</p>
-
-<p>$ cd /path/to/my/wymeditor/src
-$ python -m SimpleHTTPServer</p>
-</li>
-<li><p>The unit test suite is located at <code>src/test/unit/index.html</code>, so if you used
-the python instructions, open up your browser to
-<a href="http://localhost:8000/test/unit/index.html">http://localhost:8000/test/unit/index.html</a>.</p></li>
-</ol><p>All green means you're good to go.</p>
-
-<ol>
-<li>
-<p>Want to run the tests from the command line? You can do that to! Just install
-<a href="http://www.phantomjs.org/">PhantomJS</a> and then (if you used the http server
-from step 2) call:</p>
-
-<p>$ build/phantomjs_test.sh localhost:8000/test/unit</p>
-</li>
-</ol><h4>
-<a name="testing-different-jquery-versions" class="anchor" href="#testing-different-jquery-versions"><span class="octicon octicon-link"></span></a>Testing Different jQuery Versions</h4>
-
-<p>The unit tests can be run with the different versions of jQuery hosted on
-Google's CDN by appending the URL parameter <code>?jquery=&lt;version&gt;</code>. For example,
-to test with jQuery 1.8.0 against a local server on port 8000:</p>
-
-<p><a href="http://localhost:8000/test/unit/?jquery=1.8.0">http://localhost:8000/test/unit/?jquery=1.8.0</a>.</p>
-
-<h3>
-<a name="building-wymeditor" class="anchor" href="#building-wymeditor"><span class="octicon octicon-link"></span></a>Building WYMeditor</h3>
-
-<ol>
-<li>
-<p>Get a copy of the source using git:</p>
-
-<p><code>git clone git://github.com/wymeditor/wymeditor.git</code></p>
-</li>
-<li>
-<p>Install <code>make</code>, Node.js and <a href="https://github.com/mishoo/UglifyJS/">UglifyJS</a>.
-To install UglifyJS using <a href="http://npmjs.org/">NPM</a> run the following:</p>
-
-<p><code>npm install -g uglify-js</code></p>
-</li>
-<li>
-<p>Run <code>make</code> from your git clone:</p>
-
-<p><code>$ cd wymeditor</code></p>
-
-<p><code>$ make</code></p>
-</li>
-</ol><p>The resulting compressed distribution will appear in your <code>dist</code> directory.</p>
-
-<h4>
-<a name="building-with-googles-closure-compiler-java" class="anchor" href="#building-with-googles-closure-compiler-java"><span class="octicon octicon-link"></span></a>Building with Google's Closure Compiler (Java)</h4>
-
-<p>The default WYMeditor distribution is built with
-<a href="https://github.com/mishoo/UglifyJS">UglifyJS</a>, which requires the
-installation of Node.js. If you prefer Java and/or Google's Closure Compiler,
-you can follow these instructions instead.</p>
-
-<ol>
-<li>
-<p>Get a copy of the source using git:</p>
-
-<p><code>git clone git://github.com/wymeditor/wymeditor.git</code></p>
-</li>
-<li><p>Install <code>make</code> and Java.</p></li>
-<li><p>Download
-<a href="https://developers.google.com/closure/compiler/">Closure Compiler application</a>,
-extracting <code>compiler.jar</code> into your <code>wymeditor</code> directory.</p></li>
-<li>
-<p>Run <code>make</code> from your git clone:</p>
-
-<p><code>$ cd wymeditor</code></p>
-
-<p><code>$ make min_closure archive</code></p>
-</li>
-</ol><h2>
-<a name="getting-help" class="anchor" href="#getting-help"><span class="octicon octicon-link"></span></a>Getting Help</h2>
+<h2>
+<a name="more-info" class="anchor" href="#more-info" class="octicon octicon-link"></span></a>More Info</h2>
 
 <ul>
 <li>
@@ -253,21 +118,5 @@ extracting <code>compiler.jar</code> into your <code>wymeditor</code> directory.
 <li>
 <strong>Official branch:</strong> <a href="https://github.com/wymeditor/wymeditor">https://github.com/wymeditor/wymeditor</a>
 </li>
-</ul><p><a href="https://wymeditor.readthedocs.org/en/latest/version_2.0/contributing.html">Read more on contributing</a></p>
+</ul>
 
-<h2>
-<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
-
-<p>Copyright (c) 2005 - 2013 Jean-Francois Hovinne,
-Dual licensed under the MIT (MIT-license.txt)
-and GPL (GPL-license.txt) licenses.</p>
-      </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/wymeditor">wymeditor</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
-      </footer>
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
-</html>
